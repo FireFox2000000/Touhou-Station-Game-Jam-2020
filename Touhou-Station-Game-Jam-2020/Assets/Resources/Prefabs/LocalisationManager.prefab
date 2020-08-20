@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_strings: {fileID: 4900000, guid: 9348bb4e5f64d094ca32b9aba286f6de, type: 3}
+  m_dialogTranslations: []

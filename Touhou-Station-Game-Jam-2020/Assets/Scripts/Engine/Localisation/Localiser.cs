@@ -4,6 +4,28 @@ using UnityEngine;
 using MoonscraperEngine;
 using System;
 
+#if UNITY_EDITOR
+using UnityEditor.Build;
+using UnityEditor.Build.Reporting;
+
+class LocalisationPreprocessor : IPreprocessBuildWithReport
+{
+    public int callbackOrder { get { return 0; } }
+
+    /// <summary>
+    /// Make sure the dialogue translations are up to date based on what's in the folders. 
+    /// </summary>
+    /// <param name="report"></param>
+    public void OnPreprocessBuild(BuildReport report)
+    {
+        GameObject prefab = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefabs/LocalisationManager.prefab", typeof(GameObject)) as GameObject;
+        Debug.Assert(prefab);
+
+        prefab.GetComponent<Localiser>().PopulateDialogTranslations();
+    }
+}
+#endif
+
 [UnitySingleton(UnitySingletonAttribute.Type.LoadedFromResources, false, "Prefabs/LocalisationManager")]
 public class Localiser : UnitySingleton<Localiser>
 {
@@ -12,6 +34,9 @@ public class Localiser : UnitySingleton<Localiser>
         Eng,
         Jpn,
     }
+
+    const string c_engId = "_eng";
+    const string c_jpnId = "_jpn";
 
     Language m_currentLanguage = Language.Eng;
     Dictionary<string, EnumLookupTable<Language, string>> m_localisationDict = new Dictionary<string, EnumLookupTable<Language, string>>();
@@ -50,6 +75,18 @@ public class Localiser : UnitySingleton<Localiser>
 
         public List<Translation> translationStrings = new List<Translation>();
     }
+
+    [Serializable]
+    public struct Translation
+    {
+        public string key;
+        public TextAsset[] translations;
+    }
+
+    [HideInInspector]
+    [SerializeField]
+    Translation[] m_dialogTranslations;  // This is automatically populated. See PopulateDialogTranslations().
+    Dictionary<string, Translation> m_dialogTranslationLookup = new Dictionary<string, Translation>();
 
     void LoadStrings()
     {
@@ -102,9 +139,21 @@ public class Localiser : UnitySingleton<Localiser>
         System.IO.File.WriteAllText("strings.json", json);
     }
 
-    private void Awake()
+    new private void Awake()
     {
+        base.Awake();
+
         //DummySaveStrings();
+
+#if UNITY_EDITOR
+        PopulateDialogTranslations();
+#endif
+        foreach (var translation in m_dialogTranslations)
+        {
+            m_dialogTranslationLookup.Add(translation.key, translation);
+        }
+
+        Debug.Log("Dialog translations count = " + m_dialogTranslationLookup.Count);
 
         LoadStrings();
     }
@@ -121,6 +170,34 @@ public class Localiser : UnitySingleton<Localiser>
         }
 
         return "[miss_str_" + key + "]";
+    }
+
+    /// <summary>
+    /// Get the approprite dialogue file for requested key
+    /// </summary>
+    /// <param name="key">The filename of the dialogue file without the file path, extention or language suffix.</param>
+    /// <returns></returns>
+    public TextAsset GetLocalisedDialogueFile(string key)
+    {
+        Translation translation;
+        if (m_dialogTranslationLookup.TryGetValue(key, out translation))
+        {
+            TextAsset asset = translation.translations[(int)m_currentLanguage];
+            if (!asset)
+            {
+                // try to use english by default
+                Debug.LogWarning("Unable to find dialogue sequence with key " + key + " for language " + m_currentLanguage + ". Defaulting to english.");
+                asset = translation.translations[(int)Language.Eng];
+            }
+
+            Debug.Assert(asset, "Unable to find dialogue sequence with key " + key);
+
+            return asset;
+        }
+
+        Debug.LogError("Unable to find dialogue sequence with key " + key);
+
+        return null;
     }
 
     /// <summary>
@@ -183,4 +260,51 @@ public class Localiser : UnitySingleton<Localiser>
             }
         }
     }
+
+#if UNITY_EDITOR
+    public void PopulateDialogTranslations()
+    {
+        Debug.Log("Populating dialogue translations");
+
+        Dictionary<string, Translation> translations = new Dictionary<string, Translation>();
+        string[] filePaths = System.IO.Directory.GetFiles("Assets/TextAssets/DialogueScripts/", "*.json");
+
+        foreach (string assetPath in filePaths)
+        {
+            TextAsset objAsset = UnityEditor.AssetDatabase.LoadAssetAtPath(assetPath, typeof(TextAsset)) as TextAsset;
+            Debug.Log("Found dialogue file " + objAsset.name);
+
+            string key = objAsset.name;
+            key = key.Replace(c_engId, "");
+            key = key.Replace(c_jpnId, "");
+
+            Translation translation;
+            if (!translations.TryGetValue(key, out translation))
+            {
+                translation = new Translation();
+                translation.key = key;
+                translation.translations = new TextAsset[EnumX<Language>.Count];
+                translations.Add(key, translation);
+            }
+
+            if (objAsset.name.EndsWith(c_jpnId))
+            {
+                translation.translations[(int)Language.Jpn] = objAsset;
+            }
+            else // if (objAsset.name.Contains(c_engId))
+            {
+                // Must be english by default
+                translation.translations[(int)Language.Eng] = objAsset;
+            }
+        }
+
+        List<Translation> finalTranslationList = new List<Translation>();
+        foreach (var keyVal in translations)
+        {
+            finalTranslationList.Add(keyVal.Value);
+        }
+
+        m_dialogTranslations = finalTranslationList.ToArray();
+    }
+#endif
 }

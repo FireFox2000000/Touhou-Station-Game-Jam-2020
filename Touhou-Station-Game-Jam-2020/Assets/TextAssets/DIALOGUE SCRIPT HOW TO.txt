@@ -1,0 +1,8 @@
+Dialogue files for the same sequeunce must have the name filename, except for the suffix. 
+
+English dialogue files end with the suffix "_eng".
+Japanese dialogue files end with the suffix "_jpn".
+
+For example, "cutscene_1_eng.json" and "cutscene_1_jpn.json" would be swapped with each other depending on the language.
+
+If there is no recognised suffix it is considered english by default.

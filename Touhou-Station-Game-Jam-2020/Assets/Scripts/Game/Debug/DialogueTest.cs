@@ -7,8 +7,6 @@ using MoonscraperEngine;
 public class DialogueTest : MonoBehaviour
 {
     [SerializeField]
-    TextAsset dialogueScript;
-    [SerializeField]
     StandardDialogManager dialogueManager;
 
     DialogueScript m_testScript;
@@ -17,6 +15,7 @@ public class DialogueTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TextAsset dialogueScript = Localiser.Instance.GetLocalisedDialogueFile("example_dialogue_1");
         m_testScript = JsonUtility.FromJson<DialogueScript>(dialogueScript.text);
 
         m_cutsceneStateMachine.currentState = new DialogueRulestate(m_cutsceneStateMachine, m_testScript, dialogueManager, 
