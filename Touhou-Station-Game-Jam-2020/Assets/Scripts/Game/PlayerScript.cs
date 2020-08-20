@@ -36,27 +36,43 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") > 0)
         {
-            StampStatus += 1;
-            transform.Translate(Vector3.right * HoriSpeed, Space.Self);
-            PlayerTrans.Rotate(0, Stamps[CurrentStamp].RotationSpeed, 0, Space.World);
-            if (StampStatus > Stamps[CurrentStamp].MovementLength)
-            {
-                CurrentStamp += 1;
-                StampStatus = 0;
-            }
+
+            // if (StampStatus < Stamps[CurrentStamp].MovementLength && CurrentStamp== Stamps.Length-1)
+            // {
+
+
+
+                StampStatus += 1;
+                transform.Translate(Vector3.right * HoriSpeed, Space.Self);
+                PlayerTrans.Rotate(0, Stamps[CurrentStamp].RotationSpeed, 0, Space.World);
+                if (StampStatus > Stamps[CurrentStamp].MovementLength)
+                {
+                    CurrentStamp += 1;
+
+                    StampStatus = 0;
+                }
+            // }
             
 
         }
         if (Input.GetAxis("Horizontal") < 0)
         {
-            StampStatus -= 1;
-            transform.Translate(Vector3.right * -HoriSpeed, Space.Self);
-            PlayerTrans.Rotate(0, -Stamps[CurrentStamp].RotationSpeed, 0, Space.World);
-            if (StampStatus < 0)
-            {
-                CurrentStamp -= 1;
-                StampStatus = Stamps[CurrentStamp].MovementLength;
-            }
+            // if (StampStatus > -1 && CurrentStamp == 0)
+            // {
+                StampStatus -= 1;
+                transform.Translate(Vector3.right * -HoriSpeed, Space.Self);
+                PlayerTrans.Rotate(0, -Stamps[CurrentStamp].RotationSpeed, 0, Space.World);
+                if (StampStatus < 0)
+                {
+                    CurrentStamp -= 1;
+                    if (CurrentStamp < 0)
+                    {
+                        CurrentStamp = Stamps.Length - 1;
+                    }
+
+                    StampStatus = Stamps[CurrentStamp].MovementLength;
+                }
+            // }
             
         }
         
