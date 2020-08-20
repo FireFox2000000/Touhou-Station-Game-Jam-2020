@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Final Game/LanguageSelection.unity
+    guid: a6eebfb76fb98f24d80114afba8aca68
   m_configObjects: {}
