@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     public Transform PlayerTrans;
@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
 
 
     [System.Serializable]
-    public class MovementStamps{
+    public class MovementStamps {
         public int MovementLength;
         public float RotationSpeed;
     }
@@ -25,15 +25,31 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
 
+    }
+    public void IncrementHaniwa()
+    {
+        NumberOfSegments += 1;
+    }
+    public void DecrementHaniwa()
+    {
+        NumberOfSegments -= 1;
+        if (NumberOfSegments < 0)
+        {
+            GameOver();
+        }
+    }
+    public void GameOver()
+    {
+        SceneManager.LoadScene("MainGame");
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
         // Player Movement Control
         PlayerTrans.position = new Vector3(PlayerTrans.position.x, PlayerTrans.position.y + (Input.GetAxis("Vertical") * Speed * Time.deltaTime), PlayerTrans.position.z);
-
+        if (PlayerTrans.position.y < -8.5) PlayerTrans.position = new Vector3(PlayerTrans.position.x, -8.5f, PlayerTrans.position.z);
+        if (PlayerTrans.position.y > -1.5) PlayerTrans.position = new Vector3(PlayerTrans.position.x, -1.5f, PlayerTrans.position.z);
         if (Input.GetAxis("Horizontal") > 0)
         {
 
@@ -48,7 +64,6 @@ public class PlayerScript : MonoBehaviour
                 if (StampStatus > Stamps[CurrentStamp].MovementLength)
                 {
                     CurrentStamp += 1;
-
                     StampStatus = 0;
                 }
             // }
@@ -65,11 +80,6 @@ public class PlayerScript : MonoBehaviour
                 if (StampStatus < 0)
                 {
                     CurrentStamp -= 1;
-                    if (CurrentStamp < 0)
-                    {
-                        CurrentStamp = Stamps.Length - 1;
-                    }
-
                     StampStatus = Stamps[CurrentStamp].MovementLength;
                 }
             // }
@@ -100,8 +110,16 @@ public class PlayerScript : MonoBehaviour
 
         for (int a=1; a<Segments.Length; a = a + 1)
         {
-            Segments[a].position = PositionData[a* SegmentDistance];
-            Segments[a].rotation = RotationData[a * SegmentDistance];
+            if (a < NumberOfSegments+1)
+            {
+                Segments[a].gameObject.SetActive(true);
+                Segments[a].position = PositionData[a * SegmentDistance];
+                Segments[a].rotation = RotationData[a * SegmentDistance];
+            }
+            else
+            {
+                Segments[a].gameObject.SetActive(false);
+            }
         }
         
         
