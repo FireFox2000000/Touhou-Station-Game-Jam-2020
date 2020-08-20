@@ -1,0 +1,14 @@
+{
+    "translationStrings": [
+        {
+            "key": "MenuItem1",
+            "eng": "Play Game",
+            "jpn": "Play Game (Jpn)"
+        },
+        {
+            "key": "MenuItem2",
+            "eng": "Exit Game",
+            "jpn": "Exit Game (Jpn)"
+        }
+    ]
+}
