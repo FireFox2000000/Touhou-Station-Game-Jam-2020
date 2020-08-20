@@ -19,6 +19,12 @@ public class Localiser : UnitySingleton<Localiser>
     [SerializeField]
     TextAsset m_strings;
 
+    public Language currentLanguage
+    {
+        get { return m_currentLanguage; }
+        set { m_currentLanguage = value; }
+    }
+
     [Serializable]
     class TranslationSaveData
     {
