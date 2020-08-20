@@ -9,6 +9,8 @@ public class StringTest : MonoBehaviour
     {
         Debug.Log("MenuItem1 string = " + Localiser.Instance.GetLocalised("MenuItem1"));
         Debug.Log("MenuItem2 string = " + Localiser.Instance.GetLocalised("MenuItem2"));
+
+        Localiser.Instance.LocaliseSceneTextElements();
     }
 
     // Update is called once per frame

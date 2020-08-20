@@ -103,6 +103,9 @@ public class Localiser : UnitySingleton<Localiser>
         LoadStrings();
     }
 
+    /// <summary>
+    /// Returns the translation string for the currently set language
+    /// </summary>
     public string GetLocalised(string key)
     {
         EnumLookupTable<Language, string> translations;
@@ -112,5 +115,66 @@ public class Localiser : UnitySingleton<Localiser>
         }
 
         return "[miss_str_" + key + "]";
+    }
+
+    /// <summary>
+    /// Walks through all TMPro.TextMeshPro, TMPro.TextMeshProUGUI and UnityEngine.UI.Text components and replaces it's text with that loaded from the localisation strings.
+    /// Has no effect if the original string is empty.
+    /// </summary>
+    public void LocaliseSceneTextElements()
+    {
+        GameObject[] gos = UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects();
+
+        foreach (GameObject go in gos)
+        {
+            if (go && go.transform.parent == null)
+            {
+                // UnityEngine.UI.Text
+                {
+                    var textElements = go.GetComponentsInChildren<UnityEngine.UI.Text>(true);
+                    foreach (var textElement in textElements)
+                    {
+                        if (!string.IsNullOrEmpty(textElement.text))
+                            textElement.text = GetLocalised(textElement.text);
+                    }
+                }
+
+                // TMPro.TextMeshPro
+                {
+                    var textElements = go.GetComponentsInChildren<TMPro.TextMeshPro>(true);
+                    foreach (var textElement in textElements)
+                    {
+                        if (!string.IsNullOrEmpty(textElement.text))
+                            textElement.text = GetLocalised(textElement.text);
+                    }
+                }
+
+                // TMPro.TextMeshProUGUI
+                {
+                    var textElements = go.GetComponentsInChildren<TMPro.TextMeshProUGUI>(true);
+                    foreach (var textElement in textElements)
+                    {
+                        if (!string.IsNullOrEmpty(textElement.text))
+                            textElement.text = GetLocalised(textElement.text);
+                    }
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Similar to "Start()" and "Update()" on Monobehaviour components, this will invoke all "OnLocalise()" methods found on components.
+    /// Useful for manually controlling localisation.
+    /// </summary>
+    public static void LocaliseSceneBroadcast()
+    {
+        GameObject[] gos = (GameObject[])GameObject.FindObjectsOfType(typeof(GameObject));
+        foreach (GameObject go in gos)
+        {
+            if (go && go.transform.parent == null)
+            {
+                go.gameObject.BroadcastMessage("OnLocalise", SendMessageOptions.DontRequireReceiver);
+            }
+        }
     }
 }
