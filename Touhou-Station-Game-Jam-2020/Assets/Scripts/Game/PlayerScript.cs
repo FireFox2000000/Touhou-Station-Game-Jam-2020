@@ -12,7 +12,6 @@ public class PlayerScript : MonoBehaviour
     public float Speed;
     public float HoriSpeed;
     public int SegmentDistance;
-
     [SerializeField]
     PathMovement m_movementPath;
     Vector3[] m_path;
@@ -28,6 +27,9 @@ public class PlayerScript : MonoBehaviour
     public MovementStamps[] Stamps;
     public int CurrentStamp;
     public int StampStatus;
+    public float CameraVerticalPosition;
+    public Transform CameraTrans;
+    public float CameraSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,10 +51,18 @@ public class PlayerScript : MonoBehaviour
     {
         SceneManager.LoadScene("MainGame");
     }
+
+
+    public void CameraMovement()
+    {
+        CameraVerticalPosition = Mathf.Lerp(CameraVerticalPosition, PlayerTrans.position.y + 0.5f, Time.deltaTime* CameraSpeed);
+        CameraTrans.position = new Vector3(CameraTrans.position.x, CameraVerticalPosition, CameraTrans.position.z);
+        // CameraTrans.LookAt(PlayerTrans);
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        CameraMovement();
         if (m_movementPath)
         {
             float movementInput = Input.GetAxis("Horizontal");
@@ -86,6 +96,8 @@ public class PlayerScript : MonoBehaviour
             float yPos = transform.position.y + Input.GetAxis("Vertical") * Speed * Time.deltaTime;
             transform.position = new Vector3(playerPosition.x, yPos, playerPosition.z);
             transform.rotation = Quaternion.Lerp(transform.rotation, optimalPlayerRotation, rotationSpeed * Time.fixedDeltaTime);
+            if (PlayerTrans.position.y < -8.5) PlayerTrans.position = new Vector3(PlayerTrans.position.x, -8.5f, PlayerTrans.position.z);
+            if (PlayerTrans.position.y > -1.5) PlayerTrans.position = new Vector3(PlayerTrans.position.x, -1.5f, PlayerTrans.position.z);
         }
         else  // Older movement system
         {
