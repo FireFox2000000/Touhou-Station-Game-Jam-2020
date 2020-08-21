@@ -7,6 +7,10 @@ using MoonscraperEngine;
 public class DialogueTest : MonoBehaviour
 {
     [SerializeField]
+    string dialogueTestFile = "example_dialogue_1";
+    [SerializeField]
+    Localiser.Language languageToTest = Localiser.Language.Eng;
+    [SerializeField]
     StandardDialogManager dialogueManager;
     [SerializeField]
     BackgroundBlending backgroundManager;
@@ -19,7 +23,9 @@ public class DialogueTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TextAsset dialogueScript = Localiser.Instance.GetLocalisedDialogueFile("example_dialogue_1");
+        Localiser.Instance.currentLanguage = languageToTest;
+
+        TextAsset dialogueScript = Localiser.Instance.GetLocalisedDialogueFile(dialogueTestFile);
         m_testScript = JsonUtility.FromJson<DialogueScript>(dialogueScript.text);
 
         m_cutsceneStateMachine.currentState = new DialogueRulestate(m_cutsceneStateMachine, m_testScript, dialogueManager, 
