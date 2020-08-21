@@ -2303,6 +2303,8 @@ MonoBehaviour:
   Speed: 5
   HoriSpeed: 0.2
   SegmentDistance: 5
+  m_movementPath: {fileID: 0}
+  rotationSpeed: 6
   Stamps:
   - MovementLength: 90
     RotationSpeed: 0

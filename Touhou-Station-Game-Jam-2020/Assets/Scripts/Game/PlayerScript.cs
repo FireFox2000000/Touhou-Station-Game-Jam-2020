@@ -17,6 +17,8 @@ public class PlayerScript : MonoBehaviour
     PathMovement m_movementPath;
     Vector3[] m_path;
     float m_currentPathDistance = 0;
+    [SerializeField]
+    float rotationSpeed = 6.0f;
 
     [System.Serializable]
     public class MovementStamps {
@@ -51,8 +53,7 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
         
-
-        if (m_movementPath) // Fall back to the old pathing system
+        if (m_movementPath)
         {
             float movementInput = Input.GetAxis("Horizontal");
             //int inputDirection = movementInput != 0 ? (int)Mathf.Sign(movementInput) : 0;
@@ -62,19 +63,19 @@ public class PlayerScript : MonoBehaviour
             float pathDistanceSqr = 0;
             float desiredPathDistanceSqr = m_currentPathDistance;// * m_currentPathDistance;
             Vector3 playerPosition = Vector3.zero;
-            Quaternion playerRotation = Quaternion.identity;
+            Quaternion optimalPlayerRotation = Quaternion.identity;
 
             // Search to find where we should be along the path
             for (int i = 1; i < m_path.Length; ++i)
             {
-                float newPathDistanceSqr = pathDistanceSqr + (m_path[i] - m_path[i - 1]).magnitude;     // sqrMag cause much faster than regular mag, may as well optimise a little. 
+                float newPathDistanceSqr = pathDistanceSqr + (m_path[i] - m_path[i - 1]).magnitude;     // todo, use sqrMag cause much faster than regular mag.
                 if (newPathDistanceSqr > desiredPathDistanceSqr)
                 {
                     float t = (desiredPathDistanceSqr - pathDistanceSqr) / (newPathDistanceSqr - pathDistanceSqr);
                     playerPosition = Vector3.Lerp(m_path[i - 1], m_path[i], t);
 
                     Vector3 direction = (m_path[i] - m_path[i - 1]).normalized;
-                    playerRotation = Quaternion.LookRotation(Quaternion.AngleAxis(-90, Vector3.up) * direction);    // Rotate the sprites so they actually face the camera
+                    optimalPlayerRotation = Quaternion.LookRotation(Quaternion.AngleAxis(-90, Vector3.up) * direction);    // Rotate the sprites so they actually face the camera
 
                     break;
                 }
@@ -84,7 +85,7 @@ public class PlayerScript : MonoBehaviour
 
             float yPos = transform.position.y + Input.GetAxis("Vertical") * Speed * Time.deltaTime;
             transform.position = new Vector3(playerPosition.x, yPos, playerPosition.z);
-            transform.rotation = playerRotation;
+            transform.rotation = Quaternion.Lerp(transform.rotation, optimalPlayerRotation, rotationSpeed * Time.fixedDeltaTime);
         }
         else  // Older movement system
         {
