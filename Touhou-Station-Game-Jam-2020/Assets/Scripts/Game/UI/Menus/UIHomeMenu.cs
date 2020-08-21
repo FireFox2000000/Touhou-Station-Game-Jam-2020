@@ -7,6 +7,11 @@ public class UIHomeMenu : FrontendMenuBase
 {
     public void PlayGame()
     {
+        FrontendStateManager.Instance.GetUIElement<UIFadeBlocker>().FadeIn(OnPlayGameTransitionFadeComplete);
+    }
+
+    void OnPlayGameTransitionFadeComplete()
+    {
         SceneManager.LoadSceneAsync(1);
     }
 

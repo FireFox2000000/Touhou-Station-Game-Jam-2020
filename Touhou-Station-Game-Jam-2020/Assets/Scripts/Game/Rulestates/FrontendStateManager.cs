@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using MoonscraperEngine;
 
-public class FrontendStateManager : MonoBehaviour
+[UnitySingleton(UnitySingletonAttribute.Type.ExistsInScene, true)]
+public class FrontendStateManager : UnitySingleton<FrontendStateManager>
 {
     [SerializeField]
     FrontendMenuBase m_initialState;
@@ -19,5 +20,10 @@ public class FrontendStateManager : MonoBehaviour
     void Update()
     {
         m_stateMachine.Update();
+    }
+
+    public T GetUIElement<T>() where T : MonoBehaviour
+    {
+        return gameObject.GetComponentInChildren<T>(true);
     }
 }
