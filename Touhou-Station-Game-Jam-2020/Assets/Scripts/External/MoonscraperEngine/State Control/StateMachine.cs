@@ -57,7 +57,7 @@ namespace MoonscraperEngine
 
         public IState currentState { get; private set; }
 
-        void ChangeState(IState state, Params parameters)
+        public void ChangeState(IState state, Params parameters)
         {
             if (currentState != null)
                 currentState.Exit(parameters);

@@ -1,6 +1,16 @@
 {
     "translationStrings": [
         {
+            "key": "PlayGame",
+            "eng": "Play",
+            "jpn": "プレイ"
+        },
+        {
+            "key": "ExitGame",
+            "eng": "Quit",
+            "jpn": "終わり"
+        },
+        {
             "key": "MenuItem1",
             "eng": "Play Game",
             "jpn": "Play Game (Jpn)"

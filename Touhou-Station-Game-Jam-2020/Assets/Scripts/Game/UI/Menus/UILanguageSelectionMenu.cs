@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UILanguageSelectionMenu : MonoBehaviour
+public class UILanguageSelectionMenu : FrontendMenuBase
 {
+    [SerializeField]
+    FrontendMenuBase m_nextState;
+
     void SelectLanguage(Localiser.Language langauge)
     {
-        Localiser.Instance.currentLanguage = langauge;
-
         Debug.Log("User selected language " + langauge);
 
-        // Todo, advance to the frontend menu
+        Localiser.Instance.currentLanguage = langauge;
+        Localiser.Instance.LocaliseSceneTextElements();
+
+        // Advance to the frontend menu
+        ChangeState(m_nextState);
     }
 
     public void SelectEnglish()
