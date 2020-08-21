@@ -13,7 +13,10 @@ public class CollisionCheck : MonoBehaviour
             ThisPlayerScript.IncrementHaniwa();
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.tag == "Enemy") ThisPlayerScript.DecrementHaniwa();
+        if (collision.gameObject.tag == "Enemy") {
+            ThisPlayerScript.DecrementHaniwa();
+            collision.gameObject.GetComponent<EnemyFairyScript>().PlayerWasHit();
+            }
         
     }
     

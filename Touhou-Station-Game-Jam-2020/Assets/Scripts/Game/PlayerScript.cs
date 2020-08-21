@@ -30,6 +30,7 @@ public class PlayerScript : MonoBehaviour
     public float CameraVerticalPosition;
     public Transform CameraTrans;
     public float CameraSpeed;
+    public SpriteRenderer PlayerSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -98,6 +99,8 @@ public class PlayerScript : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, optimalPlayerRotation, rotationSpeed * Time.fixedDeltaTime);
             if (PlayerTrans.position.y < -8.5) PlayerTrans.position = new Vector3(PlayerTrans.position.x, -8.5f, PlayerTrans.position.z);
             if (PlayerTrans.position.y > -1.5) PlayerTrans.position = new Vector3(PlayerTrans.position.x, -1.5f, PlayerTrans.position.z);
+            if (Input.GetAxis("Horizontal") > 0) PlayerSprite.flipX = false;
+            if (Input.GetAxis("Horizontal") < 0) PlayerSprite.flipX = true;
         }
         else  // Older movement system
         {
