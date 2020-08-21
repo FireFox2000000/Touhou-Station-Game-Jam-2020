@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class UIFadeBlocker : MonoBehaviour
 {
-    Image m_image;
+    Image[] m_images = null;
 
     [SerializeField]
     float m_fadeSpeed = 0.5f;
@@ -15,8 +15,8 @@ public class UIFadeBlocker : MonoBehaviour
 
     void Init()
     {
-        if (!m_image)
-            m_image = GetComponent<Image>();
+        if (m_images == null)
+            m_images = GetComponentsInChildren<Image>();
     }
 
     public void FadeIn(OnCompleteFn onCompleteCallback)
@@ -43,9 +43,12 @@ public class UIFadeBlocker : MonoBehaviour
 
             alpha = Mathf.Clamp01(alpha);
 
-            Color colour = m_image.color;
-            colour.a = alpha;
-            m_image.color = colour;
+            foreach (var image in m_images)
+            {
+                Color colour = image.color;
+                colour.a = alpha;
+                image.color = colour;
+            }
 
             yield return null;
         }
