@@ -816,13 +816,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cutscene Dialogue Box
       objectReference: {fileID: 0}
-    - target: {fileID: 3943721346690833990, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3943721346690833990, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
