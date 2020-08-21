@@ -11,6 +11,36 @@
             "jpn": "終わり"
         },
         {
+            "key": "ViewCredits",
+            "eng": "Credits",
+            "jpn": "クレジット"
+        },
+        {
+            "key": "Back",
+            "eng": "Back",
+            "jpn": "戻る"
+        },
+        {
+            "key": "ProductionAndGameplayProgramming",
+            "eng": "Production and Programming (Gameplay)"
+        },
+        {
+            "key": "EngineFrontendSystemProgramming",
+            "eng": "Programming (Engine, Frontend and Systems)"
+        },
+        {
+            "key": "CharacterArtAnimation",
+            "eng": "Character Art and Animation"
+        },
+        {
+            "key": "BackgroundArtTranslation",
+            "eng": "Background Art and Translations"
+        },
+        {
+            "key": "MusicDialogue",
+            "eng": "Music and Writing"
+        },
+        {
             "key": "MenuItem1",
             "eng": "Play Game",
             "jpn": "Play Game (Jpn)"

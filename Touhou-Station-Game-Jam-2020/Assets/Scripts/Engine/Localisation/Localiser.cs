@@ -164,7 +164,7 @@ public class Localiser : UnitySingleton<Localiser>
     public string GetLocalised(string key)
     {
         EnumLookupTable<Language, string> translations;
-        if (m_localisationDict.TryGetValue(key, out translations))
+        if (m_localisationDict.TryGetValue(key, out translations) && !string.IsNullOrEmpty(translations[m_currentLanguage]))
         {
             return translations[m_currentLanguage];
         }

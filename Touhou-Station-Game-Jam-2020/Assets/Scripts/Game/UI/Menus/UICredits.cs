@@ -13,7 +13,7 @@ public class UICredits : FrontendMenuBase
     {
         // Populate credits text manually to skip localisation
 
-        string creditsStr = Localiser.Instance.GetLocalised("Credits");
+        string creditsStr = Localiser.Instance.GetLocalised("ViewCredits");
         string jennRoleStr = Localiser.Instance.GetLocalised("ProductionAndGameplayProgramming");
         string firefoxRoleStr = Localiser.Instance.GetLocalised("EngineFrontendSystemProgramming");
         string nnekonRoleStr = Localiser.Instance.GetLocalised("CharacterArtAnimation");
