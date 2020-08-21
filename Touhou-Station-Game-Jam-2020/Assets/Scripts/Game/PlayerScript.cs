@@ -31,6 +31,7 @@ public class PlayerScript : MonoBehaviour
     public Transform CameraTrans;
     public float CameraSpeed;
     public SpriteRenderer PlayerSprite;
+    public float HitRedValue;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +44,7 @@ public class PlayerScript : MonoBehaviour
     public void DecrementHaniwa()
     {
         NumberOfSegments -= 1;
+        HitRedValue = 0f;
         if (NumberOfSegments < 0)
         {
             GameOver();
@@ -63,6 +65,14 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        if (HitRedValue < 1f)
+        {
+            HitRedValue += Time.deltaTime;
+        }
+        else HitRedValue = 1f;
+        PlayerSprite.color = new Color(PlayerSprite.color.r, HitRedValue, HitRedValue);
+
         CameraMovement();
         if (m_movementPath)
         {
