@@ -248,7 +248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca0c8cabfbb26645a057139e9eec329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueScript: {fileID: 4900000, guid: 8b4124cffc9d886438600e34891435b3, type: 3}
   dialogueManager: {fileID: 252467634}
 --- !u!1 &382239083
 GameObject:
@@ -775,7 +774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3943721346690833988, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 5
+      value: -2.7871
       objectReference: {fileID: 0}
     - target: {fileID: 3943721346690833988, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -783,7 +782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3943721346690833988, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 479.57422
       objectReference: {fileID: 0}
     - target: {fileID: 3943721346690833988, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
       propertyPath: m_SizeDelta.y
@@ -816,6 +815,14 @@ PrefabInstance:
     - target: {fileID: 3943721346690833989, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
       propertyPath: m_Name
       value: Cutscene Dialogue Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943721346690833990, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943721346690833990, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
