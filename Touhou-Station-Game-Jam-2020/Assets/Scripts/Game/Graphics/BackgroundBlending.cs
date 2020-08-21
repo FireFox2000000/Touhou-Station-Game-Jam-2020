@@ -7,7 +7,8 @@ public class BackgroundBlending : MonoBehaviour
 {
     Renderer m_ren;
     bool m_fadeRunning = false;
-    Texture2D m_currentTexture;
+    Texture m_currentTexture;
+    Texture m_initTexture;
 
     [SerializeField]
     float m_bleadSpeed = 0.5f;
@@ -18,6 +19,14 @@ public class BackgroundBlending : MonoBehaviour
     {
         if (!m_ren)
             m_ren = GetComponent<Renderer>();
+
+        if (!m_currentTexture)
+            m_currentTexture = m_ren.sharedMaterial.mainTexture;
+
+        if (!m_initTexture)
+            m_initTexture = m_ren.sharedMaterial.mainTexture;
+
+        Debug.Log(m_currentTexture);
     }
 
     public void SetTexture(Texture2D tex)
@@ -32,11 +41,13 @@ public class BackgroundBlending : MonoBehaviour
     {
         Debug.Log("Kicking background transition");
 
+        InitRen();
+
         StartCoroutine(Fade(m_currentTexture, destText, onCompleteCallback));
         m_currentTexture = destText;
     }
 
-    IEnumerator Fade(Texture2D startTex, Texture2D endTex, OnCompleteFn onCompleteCallback)
+    IEnumerator Fade(Texture startTex, Texture2D endTex, OnCompleteFn onCompleteCallback)
     {
         InitRen();
 
@@ -62,5 +73,10 @@ public class BackgroundBlending : MonoBehaviour
         onCompleteCallback();
 
         m_fadeRunning = false;
+    }
+
+    void OnApplicationQuit()
+    {
+        m_ren.sharedMaterial.mainTexture = m_initTexture;
     }
 }

@@ -6,3 +6,13 @@ Japanese dialogue files end with the suffix "_jpn".
 For example, "cutscene_1_eng.json" and "cutscene_1_jpn.json" would be swapped with each other depending on the language.
 
 If there is no recognised suffix it is considered english by default.
+
+Properties:
+  "text" - 
+          The dialog to be shown. If the dialog length is greater than the box can handle it will automatically be
+          truncated into seperate pages.
+  "background_image" - 
+          If this is defined then before the sequence start it will fade the current background to the
+          texture of the same name. 
+          Note that the textures used must be manually referenced in the dialogue manager of the current seen to be 
+          successfully found.

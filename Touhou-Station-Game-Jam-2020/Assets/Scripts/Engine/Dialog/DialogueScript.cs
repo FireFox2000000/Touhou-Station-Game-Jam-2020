@@ -9,6 +9,7 @@ public class DialogueScript
     public class Sequence
     {
         public string text;
+        public string background_image;
 
         // Image? Character name?
 

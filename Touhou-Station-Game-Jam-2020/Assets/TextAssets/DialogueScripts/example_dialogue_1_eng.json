@@ -1,10 +1,11 @@
 {
     "sequences": [
         {
-            "text": "Hello and cut off please and thank you"
+            "text": "Hello and cut off please and thank you"   
         },
         {
-            "text": "Touhou"
+            "text": "Touhou",
+            "background_image": "test_bg_1"
         },
         {
             "text": "Game"

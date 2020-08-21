@@ -8,6 +8,10 @@ public class DialogueTest : MonoBehaviour
 {
     [SerializeField]
     StandardDialogManager dialogueManager;
+    [SerializeField]
+    BackgroundBlending backgroundManager;
+    [SerializeField]
+    Texture2D finalTexture;
 
     DialogueScript m_testScript;
     StateMachine m_cutsceneStateMachine = new StateMachine();
@@ -21,7 +25,7 @@ public class DialogueTest : MonoBehaviour
         m_cutsceneStateMachine.currentState = new DialogueRulestate(m_cutsceneStateMachine, m_testScript, dialogueManager, 
             () => {
                 dialogueManager.Close();
-                m_cutsceneStateMachine.currentState = null;
+                m_cutsceneStateMachine.currentState = new BackgroundTransitionState(backgroundManager, finalTexture, () => { m_cutsceneStateMachine.currentState = null; });
             });
     }
 

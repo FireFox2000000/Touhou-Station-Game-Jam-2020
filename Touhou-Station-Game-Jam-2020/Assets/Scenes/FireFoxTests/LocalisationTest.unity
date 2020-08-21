@@ -249,6 +249,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 252467634}
+  backgroundManager: {fileID: 2012693962}
+  finalTexture: {fileID: 2800000, guid: 9d802e2af733b664f81bcfd613f551a2, type: 3}
 --- !u!1 &382239083
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +723,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903415702}
   m_CullTransparentMesh: 0
+--- !u!1001 &2012693961
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2654896004195559280, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+      propertyPath: m_Name
+      value: Cutscene Background Renderer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654896004195559293, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654896004195559293, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654896004195559293, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654896004195559293, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654896004195559293, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654896004195559293, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654896004195559293, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654896004195559293, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654896004195559293, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654896004195559293, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654896004195559293, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654896004195559294, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+--- !u!114 &2012693962 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2654896002813619071, guid: 5f5613a5174c54c418fa4f1dd1c8be7d, type: 3}
+  m_PrefabInstance: {fileID: 2012693961}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59071db89b826e248bc02532100a92ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3943721346607712245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -816,5 +890,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cutscene Dialogue Box
       objectReference: {fileID: 0}
+    - target: {fileID: 3943721346690833991, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
+      propertyPath: m_backgroundRefs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943721346690833991, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
+      propertyPath: m_backgroundManager
+      value: 
+      objectReference: {fileID: 2012693962}
+    - target: {fileID: 3943721346690833991, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
+      propertyPath: m_backgroundRefs.Array.data[0]
+      value: 
+      objectReference: {fileID: 2800000, guid: 9e9c4dae14291da478242c88ca2d203d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
