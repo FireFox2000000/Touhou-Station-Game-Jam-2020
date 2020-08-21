@@ -3,12 +3,12 @@
         {
             "key": "PlayGame",
             "eng": "Play",
-            "jpn": "プレイ"
+            "jpn": "ゲーム スタート"
         },
         {
             "key": "ExitGame",
             "eng": "Quit",
-            "jpn": "終わり"
+            "jpn": "終了"
         },
         {
             "key": "ViewCredits",

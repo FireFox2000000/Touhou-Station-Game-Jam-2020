@@ -25,7 +25,7 @@ public class UICredits : FrontendMenuBase
         sb.AppendFormat("<b>{0}</b>\n\n", creditsStr);
         sb.AppendFormat("<align=\"left\">Jenn Raye <indent=15%>- {0}</indent>\n\n", jennRoleStr);
         sb.AppendFormat("FireFox <indent=15%>- {0}</indent>\n\n", firefoxRoleStr);
-        sb.AppendFormat("Nnekon <indent=15%>- {0}</indent>\n\n", nnekonRoleStr);
+        sb.AppendFormat("Nekon <indent=15%>- {0}</indent>\n\n", nnekonRoleStr);
         sb.AppendFormat("KurantoB <indent=15%>- {0}</indent>\n\n", kurantoRoleStr);
         sb.AppendFormat("RaeRae <indent=15%>- {0}</indent>\n\n", raeRoleStrStr);
         sb.AppendFormat("</align>", raeRoleStrStr);
