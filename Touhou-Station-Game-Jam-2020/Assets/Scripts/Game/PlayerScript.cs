@@ -18,7 +18,7 @@ public class PlayerScript : MonoBehaviour
     Vector3[] m_path;
     float m_currentPathDistance = 0;
     [SerializeField]
-    float rotationSpeed = 6.0f;
+    public float rotationSpeed = 6.0f;
 
     [System.Serializable]
     public class MovementStamps {
