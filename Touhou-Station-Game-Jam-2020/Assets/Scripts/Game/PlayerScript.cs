@@ -60,8 +60,9 @@ public class PlayerScript : MonoBehaviour
 
                 StampStatus += 1;
                 transform.Translate(Vector3.right * HoriSpeed, Space.Self);
-                PlayerTrans.Rotate(0, Stamps[CurrentStamp].RotationSpeed, 0, Space.World);
-                if (StampStatus > Stamps[CurrentStamp].MovementLength)
+            // PlayerTrans.Rotate(0, Stamps[CurrentStamp].RotationSpeed, 0, Space.World);
+            PlayerTrans.eulerAngles = new Vector3(PlayerTrans.eulerAngles.x, PlayerTrans.eulerAngles.y + Stamps[CurrentStamp].RotationSpeed, PlayerTrans.eulerAngles.z);
+                if (StampStatus > Stamps[CurrentStamp].MovementLength-1)
                 {
                     CurrentStamp += 1;
                     StampStatus = 0;
@@ -76,11 +77,12 @@ public class PlayerScript : MonoBehaviour
             // {
                 StampStatus -= 1;
                 transform.Translate(Vector3.right * -HoriSpeed, Space.Self);
-                PlayerTrans.Rotate(0, -Stamps[CurrentStamp].RotationSpeed, 0, Space.World);
-                if (StampStatus < 0)
+                // PlayerTrans.Rotate(0, -Stamps[CurrentStamp].RotationSpeed, 0, Space.World);
+            PlayerTrans.eulerAngles = new Vector3(PlayerTrans.eulerAngles.x, PlayerTrans.eulerAngles.y - Stamps[CurrentStamp].RotationSpeed, PlayerTrans.eulerAngles.z);
+            if (StampStatus < 0)
                 {
                     CurrentStamp -= 1;
-                    StampStatus = Stamps[CurrentStamp].MovementLength;
+                    StampStatus = Stamps[CurrentStamp].MovementLength-1;
                 }
             // }
             
