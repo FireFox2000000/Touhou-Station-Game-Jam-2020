@@ -23,6 +23,7 @@ public class CollisionCheck : MonoBehaviour
         if (collision.gameObject.tag == "Akyuu")
         {
             // Function To Call Ending Cutscene
+            GameplayManager.Instance.UserWonGameEvent.Fire();
         }
     }
     
