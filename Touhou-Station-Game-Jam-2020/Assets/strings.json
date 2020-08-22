@@ -45,6 +45,11 @@
             "eng": "Testers"
         },
         {
+            "key": "ToolTipInputAdvance",
+            "eng": "[z]",
+            "jpn": "[z]"
+        },
+        {
             "key": "Test1",
             "eng": "Play Game",
             "jpn": "Play Game (Jpn)"
