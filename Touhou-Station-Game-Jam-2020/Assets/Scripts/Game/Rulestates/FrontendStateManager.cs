@@ -42,11 +42,29 @@ public class FrontendStateManager : UnitySingleton<FrontendStateManager>
     void TransitionToGameplay()
     {
         m_stateMachine.currentState = null;
-        GetUIElement<UIFadeBlocker>().FadeIn(OnPlayGameTransitionFadeComplete);
+        var fadeBlocker = GetUIElement<UIFadeBlocker>();
+        fadeBlocker.FadeIn(OnPlayGameTransitionFadeComplete);
+        var music = GetComponent<AudioSource>();
+        StartCoroutine(FadeOut(music, fadeBlocker.fadeSpeed * 0.5f));
     }
 
     void OnPlayGameTransitionFadeComplete()
     {
         SceneManager.LoadSceneAsync(1);
+    }
+
+    static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
     }
 }

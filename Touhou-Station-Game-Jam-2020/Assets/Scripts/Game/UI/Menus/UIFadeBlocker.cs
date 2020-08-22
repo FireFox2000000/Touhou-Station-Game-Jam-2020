@@ -11,6 +11,8 @@ public class UIFadeBlocker : MonoBehaviour
     [SerializeField]
     float m_fadeSpeed = 0.5f;
 
+    public float fadeSpeed { get { return m_fadeSpeed; } }
+
     public delegate void OnCompleteFn();
 
     void Init()
