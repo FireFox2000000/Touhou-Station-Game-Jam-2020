@@ -41,14 +41,13 @@
             "eng": "Music and Writing"
         },
         {
-            "key": "MenuItem1",
-            "eng": "Play Game",
-            "jpn": "Play Game (Jpn)"
+            "key": "Testers",
+            "eng": "Testers"
         },
         {
-            "key": "MenuItem2",
-            "eng": "Exit Game",
-            "jpn": "Exit Game (Jpn)"
+            "key": "Test1",
+            "eng": "Play Game",
+            "jpn": "Play Game (Jpn)"
         }
     ]
 }
