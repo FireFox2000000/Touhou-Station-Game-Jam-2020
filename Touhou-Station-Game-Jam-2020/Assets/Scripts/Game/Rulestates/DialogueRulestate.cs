@@ -27,11 +27,13 @@ public class DialogueRulestate : StateMachine.IState
 
     public void Enter()
     {
+        m_uiMananger.Open();
         AdvanceSequence();
     }
 
     public void Exit()
     {
+        m_uiMananger.Close();
     }
 
     public void Update()

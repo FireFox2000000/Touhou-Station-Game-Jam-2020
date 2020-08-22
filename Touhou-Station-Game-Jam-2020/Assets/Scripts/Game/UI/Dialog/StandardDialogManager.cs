@@ -5,7 +5,6 @@ using UnityEngine;
 /// <summary>
 /// Basic dialog display in pages with no text text animation
 /// </summary>
-[RequireComponent(typeof(TMPro.TextMeshProUGUI))]
 public class StandardDialogManager : MonoBehaviour, IDialogueUI
 {
     TMPro.TextMeshProUGUI text;
@@ -21,7 +20,7 @@ public class StandardDialogManager : MonoBehaviour, IDialogueUI
 
     void Awake()
     {
-        text = GetComponent<TMPro.TextMeshProUGUI>();
+        text = GetComponentInChildren<TMPro.TextMeshProUGUI>(true);
     }
 
     public bool AdvanceSequence()
@@ -45,6 +44,8 @@ public class StandardDialogManager : MonoBehaviour, IDialogueUI
     public void SetCurrentSequence(DialogueScript.Sequence sequence)
     {
         text.text = sequence.text;
+
+        Debug.Log("Sequence text = " + sequence.text);
 
         Texture2D bgTex = null;
         if (!string.IsNullOrEmpty(sequence.background_image))
