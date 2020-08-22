@@ -32,6 +32,10 @@ public class PlayerScript : MonoBehaviour
     public float CameraSpeed;
     public SpriteRenderer PlayerSprite;
     public float HitRedValue;
+    public float StunTimer;
+    public HaniwaAnimation HaniwaAnimScript;
+    public AudioSource SFX_GrabClay;
+    public AudioSource SFX_HitByFairy;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,14 +44,21 @@ public class PlayerScript : MonoBehaviour
     public void IncrementHaniwa()
     {
         NumberOfSegments += 1;
+        SFX_GrabClay.Play();
     }
     public void DecrementHaniwa()
     {
-        NumberOfSegments -= 1;
-        HitRedValue = 0f;
-        if (NumberOfSegments < 0)
+        if (StunTimer == 0f)
         {
-            GameOver();
+
+            SFX_HitByFairy.Play();
+            NumberOfSegments -= 1;
+            HitRedValue = 0f;
+            StunTimer = 4f;
+            if (NumberOfSegments < 0)
+            {
+                GameOver();
+            }
         }
     }
     public void GameOver()
@@ -66,18 +77,49 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (HitRedValue < 1f)
-        {
-            HitRedValue += Time.deltaTime;
-        }
-        else HitRedValue = 1f;
-        PlayerSprite.color = new Color(PlayerSprite.color.r, HitRedValue, HitRedValue);
+        
 
         CameraMovement();
         if (m_movementPath)
         {
+
+            float yPos = transform.position.y + Input.GetAxis("Vertical") * Speed * Time.deltaTime;
             float movementInput = Input.GetAxis("Horizontal");
             //int inputDirection = movementInput != 0 ? (int)Mathf.Sign(movementInput) : 0;
+
+
+            if(StunTimer > 2f && StunTimer <= 4f)
+            {
+                movementInput = 0;
+                StunTimer -= Time.deltaTime;
+                yPos = transform.position.y - 2f * Speed * Time.deltaTime;
+                PlayerSprite.color = new Color(PlayerSprite.color.r, 0f, 0f);
+                HaniwaAnimScript.enabled = false;
+                PlayerSprite.flipY = true;
+            }
+
+            if(StunTimer > 0f && StunTimer <= 2f)
+            {
+                StunTimer -= Time.deltaTime;
+                if (HitRedValue < 1f)
+                {
+                    HitRedValue += Time.deltaTime * 0.5f;
+                }
+                else HitRedValue = 1f;
+                PlayerSprite.color = new Color(PlayerSprite.color.r, HitRedValue, HitRedValue);
+
+                PlayerSprite.flipY = false;
+                HaniwaAnimScript.enabled = true;
+            }
+
+
+            if (StunTimer < 0f)
+            {
+                PlayerSprite.color = new Color(1f, 1f, 1f, 1f);
+                StunTimer = 0f;
+                PlayerSprite.flipY = false;
+            }
+            
             m_currentPathDistance += movementInput * HoriSpeed;
 
             // Brute forced, can be optimised by preprocessing the path lengths but meh
@@ -104,7 +146,7 @@ public class PlayerScript : MonoBehaviour
                 pathDistanceSqr = newPathDistanceSqr;
             }
 
-            float yPos = transform.position.y + Input.GetAxis("Vertical") * Speed * Time.deltaTime;
+            
             transform.position = new Vector3(playerPosition.x, yPos, playerPosition.z);
             transform.rotation = Quaternion.Lerp(transform.rotation, optimalPlayerRotation, rotationSpeed * Time.fixedDeltaTime);
             if (PlayerTrans.position.y < -8.5) PlayerTrans.position = new Vector3(PlayerTrans.position.x, -8.5f, PlayerTrans.position.z);
