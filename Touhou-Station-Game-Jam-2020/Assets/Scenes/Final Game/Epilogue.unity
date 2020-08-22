@@ -532,6 +532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cutscene Dialogue Box Bg
       objectReference: {fileID: 0}
+    - target: {fileID: 894890087308319146, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -578,35 +582,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2.1
+      value: -2.100006
       objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -191.99998
+      value: 52.5
       objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 826.2899
+      value: -97.71008
       objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 68.94255
       objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_Pivot.x

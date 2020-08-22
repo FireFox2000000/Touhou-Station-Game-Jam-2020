@@ -2438,6 +2438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cutscene Dialogue Box Bg
       objectReference: {fileID: 0}
+    - target: {fileID: 894890087308319146, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2483,36 +2487,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -2.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -191.99998
-      objectReference: {fileID: 0}
-    - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 826.2899
-      objectReference: {fileID: 0}
-    - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
+      value: 52.600006
       objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_Pivot.x
@@ -2521,6 +2505,18 @@ PrefabInstance:
     - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 894890087308319147, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 69.16919
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238345061222989616, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238345061222989618, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.199997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a111a97e904a9054391e84832a7f9b04, type: 3}
