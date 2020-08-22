@@ -77,6 +77,13 @@ public class BackgroundBlending : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        m_ren.sharedMaterial.mainTexture = m_initTexture;
+        if (m_ren)
+            m_ren.sharedMaterial.mainTexture = m_initTexture;
+    }
+
+    void OnDestroy()
+    {
+        if (m_ren)
+            m_ren.sharedMaterial.mainTexture = m_initTexture;
     }
 }

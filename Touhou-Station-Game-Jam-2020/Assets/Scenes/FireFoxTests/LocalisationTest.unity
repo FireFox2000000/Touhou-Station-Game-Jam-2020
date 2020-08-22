@@ -248,6 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca0c8cabfbb26645a057139e9eec329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTestFile: Cutscene_2_A
+  languageToTest: 0
   dialogueManager: {fileID: 252467634}
   backgroundManager: {fileID: 2012693962}
   finalTexture: {fileID: 2800000, guid: 9d802e2af733b664f81bcfd613f551a2, type: 3}
