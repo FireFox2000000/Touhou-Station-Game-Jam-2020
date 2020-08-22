@@ -2482,6 +2482,14 @@ PrefabInstance:
       propertyPath: m_text
       value: "\u65E5\u672C\u8A9E"
       objectReference: {fileID: 0}
+    - target: {fileID: 7306887482999339894, guid: b3d312580a44dda4c8c55914aa5fa081, type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306887482999339894, guid: b3d312580a44dda4c8c55914aa5fa081, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7306887483920558604, guid: b3d312580a44dda4c8c55914aa5fa081, type: 3}
       propertyPath: m_Name
       value: Selection Japanese
