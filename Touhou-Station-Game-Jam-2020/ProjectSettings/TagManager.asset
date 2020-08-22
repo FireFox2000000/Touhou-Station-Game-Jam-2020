@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Clay
   - Enemy
+  - Akyuu
   layers:
   - Default
   - TransparentFX
