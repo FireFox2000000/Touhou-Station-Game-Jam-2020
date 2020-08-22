@@ -61,7 +61,7 @@ public class PlayerScript : MonoBehaviour
             SFX_HitByFairy.Play();
             NumberOfSegments -= 1;
             HitRedValue = 0f;
-            StunTimer = 4f;
+            StunTimer = 3.5f;
             if (NumberOfSegments < 0)
             {
                 GameOver();
