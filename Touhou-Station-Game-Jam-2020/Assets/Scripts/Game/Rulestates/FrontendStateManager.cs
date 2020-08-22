@@ -12,12 +12,25 @@ public class FrontendStateManager : UnitySingleton<FrontendStateManager>
     [SerializeField]
     StandardDialogManager m_dialogueManager;
     [SerializeField]
+    BackgroundBlending m_backgroundManager;
+    [SerializeField]
+    Texture2D m_initialTexture;
+    [SerializeField]
     string introCutsceneKey;
+    [SerializeField]
+    GameObject[] m_dummyObjectsToDisable;
 
     StateMachine m_stateMachine = new StateMachine();
 
     void Start()
     {
+        m_backgroundManager.SetTexture(m_initialTexture);
+
+        foreach(var go in m_dummyObjectsToDisable)
+        {
+            go.SetActive(false);
+        }
+
         m_initialState.Init(m_stateMachine);
         m_stateMachine.currentState = m_initialState;
     }
