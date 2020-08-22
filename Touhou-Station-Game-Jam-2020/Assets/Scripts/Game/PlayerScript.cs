@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     float m_currentPathDistance = 0;
     [SerializeField]
     public float rotationSpeed = 6.0f;
+    private float m_movementPathMaxDistance = 0.0f;
 
     [System.Serializable]
     public class MovementStamps {
@@ -40,6 +41,12 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         m_path = m_movementPath.GetPath();
+
+        // Precompute arc length
+        for (int i = 1; i < m_path.Length; ++i)
+        {
+            m_movementPathMaxDistance += (m_path[i] - m_path[i - 1]).magnitude;
+        }
     }
     public void IncrementHaniwa()
     {
@@ -120,7 +127,7 @@ public class PlayerScript : MonoBehaviour
                 PlayerSprite.flipY = false;
             }
             
-            m_currentPathDistance += movementInput * HoriSpeed;
+            m_currentPathDistance = Mathf.Clamp(m_currentPathDistance + movementInput * HoriSpeed, 0, m_movementPathMaxDistance);
 
             // Brute forced, can be optimised by preprocessing the path lengths but meh
             float pathDistanceSqr = 0;
@@ -132,7 +139,7 @@ public class PlayerScript : MonoBehaviour
             for (int i = 1; i < m_path.Length; ++i)
             {
                 float newPathDistanceSqr = pathDistanceSqr + (m_path[i] - m_path[i - 1]).magnitude;     // todo, use sqrMag cause much faster than regular mag.
-                if (newPathDistanceSqr > desiredPathDistanceSqr)
+                if (newPathDistanceSqr >= desiredPathDistanceSqr)
                 {
                     float t = (desiredPathDistanceSqr - pathDistanceSqr) / (newPathDistanceSqr - pathDistanceSqr);
                     playerPosition = Vector3.Lerp(m_path[i - 1], m_path[i], t);
@@ -146,11 +153,11 @@ public class PlayerScript : MonoBehaviour
                 pathDistanceSqr = newPathDistanceSqr;
             }
 
-            
+            yPos = Mathf.Clamp(yPos, -8.5f, -4.0f);
+
             transform.position = new Vector3(playerPosition.x, yPos, playerPosition.z);
             transform.rotation = Quaternion.Lerp(transform.rotation, optimalPlayerRotation, rotationSpeed * Time.fixedDeltaTime);
-            if (PlayerTrans.position.y < -8.5) PlayerTrans.position = new Vector3(PlayerTrans.position.x, -8.5f, PlayerTrans.position.z);
-            if (PlayerTrans.position.y > -4f) PlayerTrans.position = new Vector3(PlayerTrans.position.x, -4f, PlayerTrans.position.z);
+
             if (Input.GetAxis("Horizontal") > 0) PlayerSprite.flipX = false;
             if (Input.GetAxis("Horizontal") < 0) PlayerSprite.flipX = true;
         }
