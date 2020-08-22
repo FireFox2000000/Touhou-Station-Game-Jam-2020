@@ -190,6 +190,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3943721346690833990, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 91c20e0b8b2418349bad78204dbac8bf, type: 2}
+    - target: {fileID: 3943721346690833990, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3943721346690833991, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
       propertyPath: m_backgroundManager
       value: 
