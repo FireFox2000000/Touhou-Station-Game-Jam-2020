@@ -77,6 +77,16 @@ public class BackgroundBlending : MonoBehaviour
         m_fadeRunning = false;
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        const float bleedCompensation = 0.05f;
+        // Adjust size for variable aspect ratios
+        float quadHeight = Camera.main.orthographicSize * 2.0f;
+        float quadWidth = quadHeight * Screen.width / Screen.height;
+        transform.localScale = new Vector3(quadWidth + bleedCompensation, quadHeight + bleedCompensation, transform.localScale.z);
+    }
+
     void OnApplicationQuit()
     {
         if (m_ren)
