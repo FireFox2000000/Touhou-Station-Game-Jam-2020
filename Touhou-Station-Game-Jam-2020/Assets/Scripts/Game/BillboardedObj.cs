@@ -10,6 +10,7 @@ public class BillboardedObj : MonoBehaviour
     void Start()
     {
         thisTrans = this.gameObject.transform;
+        if (CameraTrans == null) CameraTrans = GameObject.Find("Player/Player/Main Camera").transform;
     }
 
     // Update is called once per frame
