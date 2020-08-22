@@ -37,17 +37,17 @@ public class BackgroundBlending : MonoBehaviour
         m_ren.sharedMaterial.mainTexture = m_currentTexture;
     }
 
-    public void KickTransition(Texture2D destText, OnCompleteFn onCompleteCallback)
+    public void KickTransition(Texture2D destText, OnCompleteFn onCompleteCallback, float onCompleteDelay = 0)
     {
         Debug.Log("Kicking background transition");
 
         InitRen();
 
-        StartCoroutine(Fade(m_currentTexture, destText, onCompleteCallback));
+        StartCoroutine(Fade(m_currentTexture, destText, onCompleteCallback, onCompleteDelay));
         m_currentTexture = destText;
     }
 
-    IEnumerator Fade(Texture startTex, Texture2D endTex, OnCompleteFn onCompleteCallback)
+    IEnumerator Fade(Texture startTex, Texture2D endTex, OnCompleteFn onCompleteCallback, float endDelay)
     {
         InitRen();
 
@@ -69,6 +69,8 @@ public class BackgroundBlending : MonoBehaviour
 
         m_ren.sharedMaterial.SetFloat("_Blend", 0);
         m_ren.sharedMaterial.mainTexture = endTex;
+
+        yield return new WaitForSeconds(endDelay);
 
         onCompleteCallback();
 

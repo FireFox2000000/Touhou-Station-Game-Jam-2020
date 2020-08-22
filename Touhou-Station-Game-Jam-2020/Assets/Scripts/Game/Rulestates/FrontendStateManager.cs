@@ -49,6 +49,7 @@ public class FrontendStateManager : UnitySingleton<FrontendStateManager>
     {
         TextAsset introCutscene = Localiser.Instance.GetLocalisedDialogueFile(introCutsceneKey);
         DialogueScript script = JsonUtility.FromJson<DialogueScript>(introCutscene.text);
+
         m_stateMachine.currentState = new DialogueRulestate(m_stateMachine, script, m_dialogueManager, TransitionToGameplay);
     }
 

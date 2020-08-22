@@ -72,7 +72,7 @@ public class StandardDialogManager : MonoBehaviour, IDialogueUI
             m_blockingEnabled = true;
 
             Close();
-            m_backgroundManager.KickTransition(bgTex, OnBackgroundSwapComplete);
+            m_backgroundManager.KickTransition(bgTex, OnBackgroundSwapComplete, sequence.delay);
         }
     }
 

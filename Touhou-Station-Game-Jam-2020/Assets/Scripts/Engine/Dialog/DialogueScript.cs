@@ -10,6 +10,7 @@ public class DialogueScript
     {
         public string text;
         public string background_image;
+        public float delay;
 
         // Image? Character name?
 
