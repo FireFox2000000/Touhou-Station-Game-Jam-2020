@@ -44,4 +44,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_strings: {fileID: 4900000, guid: 9348bb4e5f64d094ca32b9aba286f6de, type: 3}
-  m_dialogTranslations: []
+  m_dialogTranslations:
+  - key: Cutscene_1_A
+    translations:
+    - {fileID: 4900000, guid: 6ac71cf53473468428f1b38134efdba2, type: 3}
+    - {fileID: 4900000, guid: bf1bf754089824640ba56d1b426a54c5, type: 3}
+  - key: Cutscene_2_A
+    translations:
+    - {fileID: 4900000, guid: 7d15161c738cd0b43b24cfc65e17b229, type: 3}
+    - {fileID: 0}
+  - key: example_dialogue_1
+    translations:
+    - {fileID: 4900000, guid: 8b4124cffc9d886438600e34891435b3, type: 3}
+    - {fileID: 4900000, guid: 8f9eabab4e5cd854b8026e6c6fdfedba, type: 3}

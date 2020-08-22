@@ -262,6 +262,7 @@ public class Localiser : UnitySingleton<Localiser>
     }
 
 #if UNITY_EDITOR
+    [ContextMenu("Build Translation Table")]
     public void PopulateDialogTranslations()
     {
         Debug.Log("Populating dialogue translations");

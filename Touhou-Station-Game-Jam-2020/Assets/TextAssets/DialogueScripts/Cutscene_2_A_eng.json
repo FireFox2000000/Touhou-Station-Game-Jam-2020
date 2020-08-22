@@ -1,8 +1,7 @@
 {
     "sequences":
     [
-        {
-            "text": "<color=#5144a6>Akyuu: <color=#FFFFFF>Thank you for this."},
+            {"text": "<color=#5144a6>Akyuu: <color=#FFFFFF>Thank you for this."},
             {"text": "<color=#5144a6>Akyuu: <color=#FFFFFF>I’m very grateful, it means a lot."},
             {"text": "<color=#5144a6>Akyuu: <color=#FFFFFF>Tell Ms. Haniyasushin I’m in her debt."},
             {"text": "<color=#DAAC20>Mayumi: <color=#FFFFFF>Yes. Now just light an incense by the haniwa with your relative’s spirit once you’re done."},
@@ -21,11 +20,7 @@
             {"text": "<color=#DAAC20>Mayumi: <color=#FFFFFF>And I wanted to see the festival too…"},
             {"text": "<color=#DAAC20>Mayumi: <color=#FFFFFF>Ah, the moon’s really beautiful tonight."},
             {"text": "<color=#FF3C26>Narumi: <color=#FFFFFF>It really is, Mayumi."},
-            {
-              "text": "<color=#DAAC20>Mayumi: <color=#FFFFFF>Huh? Why are you here?",
-              "background_image": "cutscene3",
-              "delay": 1
-            },
+            {"text": "<color=#DAAC20>Mayumi: <color=#FFFFFF>Huh? Why are you here?"},
             {"text": "<color=#FF3C26>Narumi: <color=#FFFFFF>Marisa said she saw you."},
             {"text": "<color=#FF3C26>Narumi: <color=#FFFFFF>And that you looked busy."},
             {"text": "<color=#DAAC20>Mayumi: <color=#FFFFFF>I was given a job to do…"},
@@ -33,7 +28,6 @@
             {"text": "<color=#DAAC20>Mayumi: <color=#FFFFFF>I kept getting lost though."},
             {"text": "<color=#FF3C26>Narumi: <color=#FFFFFF>It’s okay, it’s okay."},
             {"text": "<color=#FF3C26>Narumi: <color=#FFFFFF>The night’s not over yet."},
-            {"text": "<color=#FF3C26>Narumi: <color=#FFFFFF>The fireworks haven’t ended."
-        }
+            {"text": "<color=#FF3C26>Narumi: <color=#FFFFFF>The fireworks haven’t ended."}
     ]
 }
