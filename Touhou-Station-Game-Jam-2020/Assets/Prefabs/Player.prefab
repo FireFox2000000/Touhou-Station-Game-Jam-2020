@@ -963,8 +963,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisPlayerScript: {fileID: 3712316303026481510}
-  SFX_GrabClay: {fileID: 156336109}
-  SFX_HitByFairy: {fileID: 722218552}
 --- !u!1 &3712316302346613683
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,7 +2150,7 @@ MonoBehaviour:
   HoriSpeed: 0.125
   SegmentDistance: 6
   m_movementPath: {fileID: 0}
-  rotationSpeed: 1
+  rotationSpeed: 2
   Stamps:
   - MovementLength: 90
     RotationSpeed: 0
@@ -2187,6 +2185,10 @@ MonoBehaviour:
   CameraSpeed: 3
   PlayerSprite: {fileID: 1558103050}
   HitRedValue: 1
+  StunTimer: 0
+  HaniwaAnimScript: {fileID: 1558103052}
+  SFX_GrabClay: {fileID: 156336109}
+  SFX_HitByFairy: {fileID: 722218552}
 --- !u!81 &1563086131
 AudioListener:
   m_ObjectHideFlags: 0
