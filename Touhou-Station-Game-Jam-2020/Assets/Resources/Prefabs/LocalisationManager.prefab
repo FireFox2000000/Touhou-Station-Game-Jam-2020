@@ -52,7 +52,7 @@ MonoBehaviour:
   - key: Cutscene_2_A
     translations:
     - {fileID: 4900000, guid: 7d15161c738cd0b43b24cfc65e17b229, type: 3}
-    - {fileID: 0}
+    - {fileID: 4900000, guid: 12ad336b025032e4cb73605f069516e2, type: 3}
   - key: example_dialogue_1
     translations:
     - {fileID: 4900000, guid: 8b4124cffc9d886438600e34891435b3, type: 3}
