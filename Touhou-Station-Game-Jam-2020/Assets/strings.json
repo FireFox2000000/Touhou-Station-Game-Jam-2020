@@ -22,27 +22,33 @@
         },
         {
             "key": "ProductionAndGameplayProgramming",
-            "eng": "Production and Programming (Gameplay)"
+            "eng": "Production and Programming (Gameplay)",
+            "jpn": "主任、ゲームプレイ・プログラム"
         },
         {
             "key": "EngineFrontendSystemProgramming",
-            "eng": "Programming (Engine, Frontend and Systems)"
+            "eng": "Programming (Engine, Frontend and Systems)",
+            "jpn": "エンジン／ＵＩ／システムズ・プログラム"
         },
         {
             "key": "CharacterArtAnimation",
-            "eng": "Character Art, Cutscene Art and Animation"
+            "eng": "Character Art, Cutscene Art and Animation",
+            "jpn": "キャラ画像、カットシーン・イラスト、ドット絵アニメーション"
         },
         {
             "key": "BackgroundArtTranslation",
-            "eng": "Background Art and Translations"
+            "eng": "Background Art and Translations",
+            "jpn": "背景イラスト、ローカリゼーション"
         },
         {
             "key": "MusicDialogue",
-            "eng": "Music and Writing"
+            "eng": "Music and Writing",
+            "jpn": "音楽、ストーリー"
         },
         {
             "key": "Testers",
-            "eng": "Testers"
+            "eng": "Testers",
+            "jpn": "試遊役"
         },
         {
             "key": "ToolTipInputAdvance",
