@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 894890087308319146}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -90,7 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c55f2c6bbceb6479e7bcd890f71eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_backgroundRefs: []
+  m_backgroundRefs:
+  - {fileID: 2800000, guid: 48f5c63b5787baa4e8a265ea0a9c3bce, type: 3}
   m_backgroundManager: {fileID: 0}
 --- !u!1 &3369839283977480245
 GameObject:
@@ -279,11 +280,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3943721346690833988, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.6000061
+      value: -0.60009766
       objectReference: {fileID: 0}
     - target: {fileID: 3943721346690833988, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.199997
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 3943721346690833988, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
       propertyPath: m_SizeDelta.x
@@ -291,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3943721346690833988, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -24.973648
+      value: -18.216114
       objectReference: {fileID: 0}
     - target: {fileID: 3943721346690833988, guid: 2b6ffa55ece92964c96decb753d16b79, type: 3}
       propertyPath: m_AnchorMin.x
