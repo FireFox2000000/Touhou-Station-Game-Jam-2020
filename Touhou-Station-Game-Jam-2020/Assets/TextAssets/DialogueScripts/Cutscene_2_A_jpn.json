@@ -3,15 +3,15 @@
     [
             {"text": "<color=#5144a6>阿求<color=#FFFFFF>「お世話になりました」"},
             
-            {"text": "<color=#5144a6>阿求<color=#FFFFFF>「本当に助かりましたよ。感動します」"},
+            {"text": "<color=#5144a6>阿求<color=#FFFFFF>「本当に助かりましたよ。感謝しています」"},
            
-            {"text": "<color=#5144a6>阿求<color=#FFFFFF>「埴安神様にも気持ちを伝えてください」"},
+            {"text": "<color=#5144a6>阿求<color=#FFFFFF>「埴安神様にも感謝を伝えてください」"},
             
-            {"text": "<color=#DAAC20>磨弓<color=#FFFFFF>「かしこまりました。それじゃあ、御用済みであると、祖先の霊魂が憑いてるハニワのそばに薫香をたくのです」"},
+            {"text": "<color=#DAAC20>磨弓<color=#FFFFFF>「かしこまりました。それじゃあ、終わったら、祖先の霊魂が憑いてる埴輪のそばに薫香をたいてください」"},
             
-            {"text": "<color=#DAAC20>磨弓<color=#FFFFFF>「小野塚様っていう死神があれを地獄へ連れて戻すのです」"},
+            {"text": "<color=#DAAC20>磨弓<color=#FFFFFF>「小野塚様っていう死神があれを地獄へ連れて戻します」"},
     
-            {"text": "<color=#5144a6>阿求<color=#FFFFFF>「はい、当然でしょうね」"},
+            {"text": "<color=#5144a6>阿求<color=#FFFFFF>「はい、わかりました」"},
       
             {"text": "<color=#5144a6>阿求<color=#FFFFFF>「では、良い夜を」"},
     
@@ -35,9 +35,9 @@
           
             {"text": "<color=#DAAC20>磨弓<color=#FFFFFF>「お祭りに寄ろうと思ってたのになぁ...」"},
             
-            {"text": "<color=#DAAC20>磨弓<color=#FFFFFF>「あれ、月がきれいでね」"},
+            {"text": "<color=#DAAC20>磨弓<color=#FFFFFF>「あれ、今夜の月ってきれいね」"},
             
-            {"text": "<color=#FF3C26>成美<color=#FFFFFF>「本当はそうなのね」"},
+            {"text": "<color=#FF3C26>成美<color=#FFFFFF>「本当にそうなのね」"},
             
             {
                 "text": "<color=#DAAC20>磨弓<color=#FFFFFF>「あ、ナルちゃん」",
@@ -45,15 +45,15 @@
                               "background_image": "cutscene3",
                               "delay": 1
             },
-            {"text": "<color=#FF3C26>成美<color=#FFFFFF>「マユちゃんがこっちへ行ったって魔理沙から聞いたわ」"},
+            {"text": "<color=#FF3C26>成美<color=#FFFFFF>「マユちゃんがこっちに行ったって魔理沙から聞いたわ」"},
             
             {"text": "<color=#FF3C26>成美<color=#FFFFFF>「凄く忙しいみたいって」"},
             
-            {"text": "<color=#DAAC20>磨弓<color=#FFFFFF>「ああ、ちょっと頼みを任されて...」"},
+            {"text": "<color=#DAAC20>磨弓<color=#FFFFFF>「ああ、ちょっと依頼を任されて...」"},
             
             {"text": "<color=#DAAC20>磨弓<color=#FFFFFF>「朝飯前だって袿姫様が言ってたのに」"},
             
-            {"text": "<color=#DAAC20>磨弓<color=#FFFFFF>「しょっちゅう道に迷ってたんだ」"},
+            {"text": "<color=#DAAC20>磨弓<color=#FFFFFF>「しょっちゅう道に迷っちゃってね」"},
             
             {"text": "<color=#FF3C26>成美<color=#FFFFFF>「ううん。大丈夫よ」"},
             
